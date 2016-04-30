@@ -85,8 +85,8 @@ KeystoneGenerator.prototype.prompts = function prompts () {
 				default: 'My Site',
 			}, {
 				name: 'viewEngine',
-				message: 'Would you like to use Jade, Swig, Nunjucks or Handlebars for templates? ' + (('[jade | swig | nunjucks | hbs]').grey),
-				default: 'jade',
+				message: 'Would you like to use Pug (Jade), Swig, Nunjucks or Handlebars for templates? ' + (('[pug | swig | nunjucks | hbs]').grey),
+				default: 'pug',
 			}, {
 				name: 'preprocessor',
 				message: 'Which CSS pre-processor would you like? ' + (('[less | sass | stylus]').grey),
@@ -160,7 +160,7 @@ KeystoneGenerator.prototype.prompts = function prompts () {
 		} else if (_.includes(['nunjucks', 'nun', 'n'], this.viewEngine.toLowerCase().trim())) {
 			this.viewEngine = 'nunjucks';
 		} else {
-			this.viewEngine = 'jade';
+			this.viewEngine = 'pug';
 		}
 
 		// Clean the preprocessor
@@ -423,7 +423,7 @@ KeystoneGenerator.prototype.templates = function templates () {
 
 	} else {
 
-		// Copy Jade/Swig Templates
+		// Copy Pug/Swig Templates
 
 		this.mkdir('templates');
 		this.mkdir('templates/views');
@@ -468,7 +468,6 @@ KeystoneGenerator.prototype.files = function files () {
 	if (this.preprocessor === 'sass') {
 		this.directory('public/fonts', 'public/fonts/bootstrap');
 		this.directory('public/styles-sass', 'public/styles');
-
 	} else if (this.preprocessor === 'less') {
 		this.directory('public/fonts');
 		this.directory('public/styles-less', 'public/styles');
@@ -476,4 +475,5 @@ KeystoneGenerator.prototype.files = function files () {
 		this.directory('public/fonts');
 		this.directory('public/styles-stylus', 'public/styles');
 	}
+
 };

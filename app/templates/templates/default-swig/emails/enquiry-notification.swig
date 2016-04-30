@@ -1,5 +1,5 @@
 {# TODO:
-   Jade email templates inherit a default base that's included with Keystone,
+   Pug email templates inherit a default base that's included with Keystone,
    the Swig templates need this to be ported across and bundled directly. #}
 
 {% block body-contents %}
